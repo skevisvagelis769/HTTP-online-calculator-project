@@ -1,4 +1,5 @@
 from flask import Flask,render_template,redirect,url_for,request
+from decimal import Decimal
 app =Flask(__name__)
 
 @app.route('/')
@@ -16,8 +17,8 @@ def submit():
     op =''
     if request.method=='POST':
         try:
-            n1 = float(request.form['n1'])
-            n2 = float(request.form['n2'])
+            n1 = Decimal(request.form['n1'])
+            n2 = Decimal(request.form['n2'])
         except:
             return "You may only use numbers!"
         oper = request.form['op']
